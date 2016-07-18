@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Demo for Simple jQuery Plugin for Popup Window</title>
+<link rel="stylesheet" href="css/jquery.popup.css" type="text/css">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/jquery.popup.js"></script>
+<script type="text/javascript">
+    $(function() {
+      $(".js__p_start, .js__p_another_start").simplePopup();
+    });
+  </script>
+</head>
+<body>
+        <!-- Popup Starter -->
+        <div class="p_anch">
+                <a href="#" class="js__p_start"> Eko Quick Pay </a>
+        </div>
+
+        <!-- Popup -->
+        <div class="p_body js__p_body js__fadeout"></div>
+        <div class="popup js__popup js__slide_top" id="popupid">
+                <div class="popupTitle">
+                        Eko Quick Pay
+                        <a href="#" class="p_close js__p_close" title="Close"></a>
+                </div>
+
+                <div id="popupContentArea" class="p_content">
+                        Demo- Card1 <br>
+                </div>
+        </div>
+</body>
+<style>
+.inner-wrap{
+        font-family: fantasy;
+        font-size: 1.8em;
+        color: black;
+}
+.popupTitle{
+        width: auto;
+        background-color: darkcyan;
+        color: white;
+        padding: 5px;
+        position: relative;
+}
+input[type="text"], input[type="submit"]{
+        width: auto;
+/*
+        height: 30px;
+        padding: 3px;
+*/
+        font-size: 25px;
+        background-color: transparent;
+        border-color: gray;
+        border-style: solid;
+        border-radius: 2px;
+}
+</style>
+<!-- Processing cards inside cards -->
+<script>
+        /* Processing cards */
+        var content = '';
+        var popup = document.getElementById('popupid');
+        var popupContentArea = document.getElementById('popupContentArea');
+        function addCard1(){
+                content = '<div class="inner-wrap">\
+                                <p>Tell us your number</p>\
+                                <label> <input type="text" name="name"  /> <input type="submit" value="Next" name="Next" onclick="card2();"/></label>\
+                        </div> ';
+                popupContentArea.innerHTML = content;
+                //popup.style.backgroundColor = "lightgreen";placeholder="Enter Mobile Number"
+        }
+        function card2(){
+
+        }
+        //init
+        addCard1();
+</script>
+
+<!-- google-analytics start -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</html>
